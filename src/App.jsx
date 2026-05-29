@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function App() {
   return (
-    <div className="bg-black text-white min-h-screen overflow-x-hidden relative">
+    <div className="bg-black text-white min-h-screen overflow-x-hidden relative scroll-smooth">
 
       {/* BACKGROUND GLOW */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
@@ -12,6 +12,39 @@ export default function App() {
         <div className="absolute w-72 h-72 bg-blue-500 rounded-full blur-[120px] bottom-20 right-10 opacity-20"></div>
 
       </div>
+
+      {/* NAVBAR */}
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-lg bg-black/30 border-b border-zinc-800">
+
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+          <h1 className="text-2xl font-bold">
+            Deepasri
+          </h1>
+
+          <div className="flex gap-6 text-sm">
+
+            <a href="#about" className="hover:text-gray-400">
+              About
+            </a>
+
+            <a href="#skills" className="hover:text-gray-400">
+              Skills
+            </a>
+
+            <a href="#projects" className="hover:text-gray-400">
+              Projects
+            </a>
+
+            <a href="#contact" className="hover:text-gray-400">
+              Contact
+            </a>
+
+          </div>
+
+        </div>
+
+      </nav>
 
       {/* HERO SECTION */}
       <section className="h-screen flex flex-col justify-center items-center text-center px-6">
@@ -34,18 +67,19 @@ export default function App() {
           Frontend Developer
         </motion.p>
 
-        <motion.button
+        <motion.a
+          href="#projects"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="mt-8 px-8 py-3 bg-white text-black rounded-full font-semibold"
         >
           View Projects
-        </motion.button>
+        </motion.a>
 
       </section>
 
-      {/* ABOUT SECTION */}
-      <section className="py-32 px-8 max-w-5xl mx-auto">
+      {/* ABOUT */}
+      <section id="about" className="py-32 px-8 max-w-5xl mx-auto">
 
         <motion.h2
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,8 +103,8 @@ export default function App() {
 
       </section>
 
-      {/* SKILLS SECTION */}
-      <section className="py-24 px-8">
+      {/* SKILLS */}
+      <section id="skills" className="py-24 px-8">
 
         <h2 className="text-4xl font-bold text-center mb-16">
           Skills
@@ -104,8 +138,8 @@ export default function App() {
 
       </section>
 
-      {/* PROJECTS SECTION */}
-      <section className="py-32 px-8">
+      {/* PROJECTS */}
+      <section id="projects" className="py-32 px-8">
 
         <h2 className="text-4xl font-bold text-center mb-16">
           Projects
@@ -149,8 +183,8 @@ export default function App() {
 
       </section>
 
-      {/* CONTACT SECTION */}
-      <section className="py-32 text-center px-6">
+      {/* CONTACT */}
+      <section id="contact" className="py-32 text-center px-6">
 
         <motion.h2
           whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +201,7 @@ export default function App() {
           transition={{ delay: 0.3 }}
           className="text-gray-400 mt-6 text-lg"
         >
-          deepasri@example.com
+          deepasripushparaj@gmail.com
         </motion.p>
 
       </section>
