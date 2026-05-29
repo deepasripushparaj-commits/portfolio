@@ -1,4 +1,9 @@
 import { motion } from "framer-motion";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedin
+} from "react-icons/fa";
 
 export default function App() {
   return (
@@ -24,19 +29,19 @@ export default function App() {
 
           <div className="flex gap-6 text-sm">
 
-            <a href="#about" className="hover:text-gray-400">
+            <a href="#about" className="hover:text-gray-400 transition-all">
               About
             </a>
 
-            <a href="#skills" className="hover:text-gray-400">
+            <a href="#skills" className="hover:text-gray-400 transition-all">
               Skills
             </a>
 
-            <a href="#projects" className="hover:text-gray-400">
+            <a href="#projects" className="hover:text-gray-400 transition-all">
               Projects
             </a>
 
-            <a href="#contact" className="hover:text-gray-400">
+            <a href="#contact" className="hover:text-gray-400 transition-all">
               Contact
             </a>
 
@@ -78,7 +83,7 @@ export default function App() {
 
       </section>
 
-      {/* ABOUT */}
+      {/* ABOUT SECTION */}
       <section id="about" className="py-32 px-8 max-w-5xl mx-auto">
 
         <motion.h2
@@ -103,7 +108,7 @@ export default function App() {
 
       </section>
 
-      {/* SKILLS */}
+      {/* SKILLS SECTION */}
       <section id="skills" className="py-24 px-8">
 
         <h2 className="text-4xl font-bold text-center mb-16">
@@ -138,7 +143,7 @@ export default function App() {
 
       </section>
 
-      {/* PROJECTS */}
+      {/* PROJECTS SECTION */}
       <section id="projects" className="py-32 px-8">
 
         <h2 className="text-4xl font-bold text-center mb-16">
@@ -183,7 +188,7 @@ export default function App() {
 
       </section>
 
-      {/* CONTACT */}
+      {/* CONTACT SECTION */}
       <section id="contact" className="py-32 text-center px-6">
 
         <motion.h2
@@ -201,8 +206,36 @@ export default function App() {
           transition={{ delay: 0.3 }}
           className="text-gray-400 mt-6 text-lg"
         >
-          deepasripushparaj@gmail.com
+          Connect with me
         </motion.p>
+
+        <div className="flex justify-center gap-8 mt-10 text-4xl">
+
+          <a
+            href="https://github.com/deepasripushparaj-commits"
+            target="_blank"
+            className="hover:text-gray-400 transition-all"
+          >
+            <FaGithub />
+          </a>
+
+          <a
+            href="https://instagram.com/"
+            target="_blank"
+            className="hover:text-pink-400 transition-all"
+          >
+            <FaInstagram />
+          </a>
+
+          <a
+            href="https://linkedin.com/"
+            target="_blank"
+            className="hover:text-blue-400 transition-all"
+          >
+            <FaLinkedin />
+          </a>
+
+        </div>
 
       </section>
 
