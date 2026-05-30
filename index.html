@@ -11,10 +11,11 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial;
+scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#0f172a,#1e293b);
+background:#0a0f1f;
 color:white;
 }
 
@@ -23,10 +24,11 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 20px;
-background:rgba(0,0,0,0.4);
+background:rgba(0,0,0,0.6);
 position:sticky;
 top:0;
 backdrop-filter:blur(10px);
+border-bottom:1px solid #38bdf8;
 }
 
 header h1{
@@ -37,6 +39,7 @@ nav a{
 color:white;
 margin:0 10px;
 text-decoration:none;
+transition:0.3s;
 }
 
 nav a:hover{
@@ -50,58 +53,54 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
 }
 
 .hero h2{
-font-size:48px;
+font-size:50px;
 color:#38bdf8;
+text-shadow:0 0 20px #38bdf8;
+animation:fadeIn 2s ease-in;
 }
 
-.typing{
-font-size:20px;
+.hero p{
+max-width:600px;
 color:#cbd5e1;
 margin-top:10px;
-border-right:2px solid #38bdf8;
-white-space:nowrap;
-overflow:hidden;
-width:0;
-animation:typing 4s steps(40,end) forwards, blink 0.8s infinite;
-}
-
-@keyframes typing{
-from{width:0}
-to{width:320px}
-}
-
-@keyframes blink{
-50%{border-color:transparent}
+animation:fadeIn 3s ease-in;
 }
 
 .btn{
 margin-top:20px;
-padding:10px 20px;
+padding:12px 25px;
 background:#38bdf8;
 border:none;
 border-radius:8px;
 cursor:pointer;
 font-weight:bold;
+box-shadow:0 0 15px #38bdf8;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:scale(1.1);
 }
 
 section{
-padding:60px 20px;
+padding:70px 20px;
 max-width:900px;
 margin:auto;
+opacity:0;
+transform:translateY(30px);
+animation:slideUp 1s forwards;
+}
+
+section:nth-child(odd){
+animation-delay:0.2s;
 }
 
 h3{
 color:#38bdf8;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 .card{
@@ -109,30 +108,23 @@ background:rgba(255,255,255,0.05);
 padding:15px;
 margin:10px 0;
 border-radius:10px;
-border:1px solid rgba(255,255,255,0.1);
+border:1px solid rgba(56,189,248,0.3);
 transition:0.3s;
 }
 
 .card:hover{
 transform:scale(1.03);
-box-shadow:0 0 15px #38bdf8;
+box-shadow:0 0 20px #38bdf8;
 }
 
 .skills span{
 display:inline-block;
 background:#38bdf8;
 color:black;
-padding:5px 10px;
+padding:6px 12px;
 margin:5px;
 border-radius:20px;
 font-weight:bold;
-}
-
-footer{
-text-align:center;
-padding:20px;
-background:rgba(0,0,0,0.4);
-margin-top:30px;
 }
 
 .social a{
@@ -140,6 +132,22 @@ color:#38bdf8;
 margin:0 10px;
 text-decoration:none;
 font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:20px;
+border-top:1px solid #38bdf8;
+margin-top:30px;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(-20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes slideUp{
+to{opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
@@ -158,7 +166,8 @@ font-weight:bold;
 
 <div class="hero">
 <h2>Full Stack Developer</h2>
-<div class="typing">I build web apps using Java, Python & JavaScript</div>
+<p>I build modern web applications using Java, Python, and JavaScript</p>
+
 <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">
 Contact Me
 </button>
@@ -167,7 +176,7 @@ Contact Me
 <section id="about">
 <h3>About Me</h3>
 <div class="card">
-I am Deepasri P. I am learning Java online and improving my full stack development skills. I already know C, C++, Python, HTML, CSS and JavaScript.
+I am Deepasri P. I am learning Java and improving my Full Stack Development skills. I enjoy building real-world projects.
 </div>
 </section>
 
@@ -180,7 +189,7 @@ I am Deepasri P. I am learning Java online and improving my full stack developme
 <span>Python</span>
 <span>C</span>
 <span>C++</span>
-<span>Java (Learning)</span>
+<span>Java</span>
 </div>
 </section>
 
@@ -188,7 +197,7 @@ I am Deepasri P. I am learning Java online and improving my full stack developme
 <h3>Projects</h3>
 <div class="card">
 <strong>Online Movie Ticket Booking System</strong>
-<p>Mini project for booking movie tickets with basic features.</p>
+<p>Mini project built for booking movie tickets with basic features.</p>
 </div>
 </section>
 
@@ -200,15 +209,15 @@ I am Deepasri P. I am learning Java online and improving my full stack developme
 </div>
 
 <div class="social">
-<p>Connect with me:</p>
-<a href="#">GitHub</a>
-<a href="#">LinkedIn</a>
-<a href="#">Instagram</a>
+<p>Connect:</p>
+<a href="https://github.com/">GitHub</a>
+<a href="https://linkedin.com/">LinkedIn</a>
+<a href="https://instagram.com/">Instagram</a>
 </div>
 </section>
 
 <footer>
-© 2026 Deepasri P | Portfolio
+© 2026 Deepasri P | All Rights Reserved
 </footer>
 
 </body>
