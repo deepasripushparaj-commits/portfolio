@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Deepasri | Full Stack Developer</title>
+<title>Deepasri | Final Boss Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -17,8 +17,21 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#0b1220;
+background:#050816;
 color:#e5e7eb;
+overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%, #38bdf8 0%, transparent 30%),
+radial-gradient(circle at 80% 80%, #8b5cf6 0%, transparent 30%);
+opacity:0.15;
+z-index:-1;
 }
 
 /* NAV */
@@ -27,16 +40,15 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 30px;
-background:rgba(10,15,25,0.8);
-backdrop-filter:blur(10px);
 position:sticky;
 top:0;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.4);
 border-bottom:1px solid #1f2937;
 }
 
 nav h1{
 color:#38bdf8;
-font-size:20px;
 }
 
 nav a{
@@ -52,7 +64,7 @@ color:#38bdf8;
 
 /* HERO */
 .hero{
-height:90vh;
+height:95vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -62,21 +74,20 @@ padding:20px;
 }
 
 .hero h2{
-font-size:52px;
+font-size:56px;
 color:#38bdf8;
+text-shadow:0 0 25px #38bdf8;
 }
 
 .hero p{
 max-width:650px;
 margin-top:15px;
 color:#9ca3af;
-font-size:16px;
 }
 
 .badge{
 margin-top:15px;
 padding:6px 12px;
-background:#1f2937;
 border:1px solid #38bdf8;
 border-radius:20px;
 font-size:12px;
@@ -95,52 +106,79 @@ transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #38bdf8;
+transform:scale(1.1);
+box-shadow:0 0 25px #38bdf8;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-max-width:900px;
+max-width:950px;
 margin:auto;
-padding:70px 20px;
+padding:80px 20px;
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s forwards;
 }
+
+section:nth-child(2){animation-delay:0.2s;}
+section:nth-child(3){animation-delay:0.4s;}
+section:nth-child(4){animation-delay:0.6s;}
 
 h3{
 color:#38bdf8;
 margin-bottom:20px;
-font-size:22px;
+font-size:24px;
 }
 
 /* CARD */
 .card{
-background:#111827;
-border:1px solid #1f2937;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(56,189,248,0.2);
 padding:18px;
-border-radius:12px;
+border-radius:14px;
 margin:12px 0;
-transition:0.3s;
+transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-5px);
-border-color:#38bdf8;
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 0 25px rgba(56,189,248,0.4);
 }
 
 /* SKILLS */
 .skills span{
 display:inline-block;
-padding:6px 12px;
+padding:7px 14px;
 margin:5px;
-background:#1f2937;
-border:1px solid #38bdf8;
 border-radius:20px;
+background:#0f172a;
+border:1px solid #38bdf8;
 font-size:13px;
+}
+
+/* PROJECT GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.project{
+background:rgba(255,255,255,0.05);
+padding:15px;
+border-radius:12px;
+border:1px solid #1f2937;
+transition:0.3s;
+}
+
+.project:hover{
+transform:scale(1.05);
+border-color:#38bdf8;
 }
 
 /* CONTACT */
 .contact{
-background:#111827;
+background:#0f172a;
 padding:18px;
 border-radius:12px;
 border:1px solid #1f2937;
@@ -155,29 +193,24 @@ color:#9ca3af;
 }
 
 /* ANIMATION */
-.fade{
-opacity:0;
-transform:translateY(20px);
-animation:up 1s forwards;
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
 }
-
-.fade:nth-child(2){animation-delay:0.2s;}
-.fade:nth-child(3){animation-delay:0.4s;}
-.fade:nth-child(4){animation-delay:0.6s;}
-
-@keyframes up{
-to{opacity:1; transform:translateY(0);}
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-.hero h2{font-size:32px;}
+.hero h2{font-size:34px;}
 nav a{display:none;}
 }
 </style>
 </head>
 
 <body>
+
+<div class="bg"></div>
 
 <nav>
 <h1>Deepasri P</h1>
@@ -190,12 +223,10 @@ nav a{display:none;}
 </nav>
 
 <!-- HERO -->
-<div class="hero fade">
-<div class="badge">Full Stack Developer</div>
-<h2>Building Modern Web Apps</h2>
-<p>
-I am Deepasri P, passionate developer skilled in C, C++, Python, JavaScript and currently learning Java for backend development.
-</p>
+<div class="hero">
+<div class="badge">🚀 Final Boss Developer Portfolio</div>
+<h2>Deepasri P</h2>
+<p>Full Stack Developer | Java Learner | Problem Solver</p>
 
 <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">
 Hire Me
@@ -203,15 +234,15 @@ Hire Me
 </div>
 
 <!-- ABOUT -->
-<section id="about" class="fade">
+<section id="about">
 <h3>About Me</h3>
 <div class="card">
-I am a dedicated Full Stack Developer learner focused on building scalable and clean web applications. I enjoy solving real-world problems using code.
+I am Deepasri P. I am passionate about Full Stack Development. I learned C, C++, Python and currently improving Java skills through online learning.
 </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="fade">
+<section id="skills">
 <h3>Skills</h3>
 <div class="card skills">
 <span>HTML</span>
@@ -220,33 +251,43 @@ I am a dedicated Full Stack Developer learner focused on building scalable and c
 <span>Python</span>
 <span>C</span>
 <span>C++</span>
-<span>Java (Learning)</span>
+<span>Java</span>
 </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="fade">
+<section id="projects">
 <h3>Projects</h3>
 
-<div class="card">
-<strong>Online Movie Ticket Booking System</strong>
-<p>Full mini project simulating ticket booking with seat selection and UI flow.</p>
+<div class="grid">
+<div class="project">
+<strong>Movie Ticket Booking</strong>
+<p>Mini project for booking movie tickets with UI flow and logic.</p>
 </div>
 
+<div class="project">
+<strong>More Coming Soon</strong>
+<p>Future full stack projects will be added here.</p>
+</div>
+</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="fade">
+<section id="contact">
 <h3>Contact</h3>
 
 <div class="contact">
-📧 Email: deepasripushparaj@gmail.com <br/>
-📱 Phone: 9566595036
+📧 deepasripushparaj@gmail.com <br/>
+📱 9566595036 <br/><br/>
+
+<a href="#" style="color:#38bdf8;">GitHub</a> |
+<a href="#" style="color:#38bdf8;">LinkedIn</a> |
+<a href="#" style="color:#38bdf8;">Instagram</a>
 </div>
 </section>
 
 <footer>
-© 2026 Deepasri P | FAANG-Level Portfolio
+© 2026 Deepasri P | Final Boss Portfolio
 </footer>
 
 </body>
