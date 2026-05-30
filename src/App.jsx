@@ -2,61 +2,97 @@ import { motion } from "framer-motion";
 import {
   FaGithub,
   FaInstagram,
-  FaLinkedin
+  FaLinkedin,
 } from "react-icons/fa";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 80 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function App() {
   return (
     <div className="bg-black text-white min-h-screen overflow-x-hidden relative scroll-smooth">
 
-      {/* BACKGROUND GLOW */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+      {/* ANIMATED BACKGROUND */}
+      <div className="absolute inset-0 overflow-hidden -z-10">
 
-        <div className="absolute w-72 h-72 bg-purple-500 rounded-full blur-[120px] top-20 left-10 opacity-20"></div>
+        <motion.div
+          animate={{
+            y: [0, 50, 0],
+            x: [0, 30, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute w-80 h-80 bg-purple-500 rounded-full blur-[150px] top-20 left-10 opacity-20"
+        />
 
-        <div className="absolute w-72 h-72 bg-blue-500 rounded-full blur-[120px] bottom-20 right-10 opacity-20"></div>
+        <motion.div
+          animate={{
+            y: [0, -50, 0],
+            x: [0, -30, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute w-80 h-80 bg-blue-500 rounded-full blur-[150px] bottom-20 right-10 opacity-20"
+        />
 
       </div>
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-lg bg-black/30 border-b border-zinc-800">
-
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="fixed top-0 w-full z-50 backdrop-blur-lg bg-black/30 border-b border-zinc-800"
+      >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-          <h1 className="text-2xl font-bold">
-            Deepasri
+          <h1 className="text-2xl font-bold tracking-wider">
+            DS
           </h1>
 
           <div className="flex gap-6 text-sm">
 
-            <a href="#about" className="hover:text-gray-400 transition-all">
+            <a href="#about" className="hover:text-gray-400 transition">
               About
             </a>
 
-            <a href="#skills" className="hover:text-gray-400 transition-all">
+            <a href="#skills" className="hover:text-gray-400 transition">
               Skills
             </a>
 
-            <a href="#projects" className="hover:text-gray-400 transition-all">
+            <a href="#projects" className="hover:text-gray-400 transition">
               Projects
             </a>
 
-            <a href="#contact" className="hover:text-gray-400 transition-all">
+            <a href="#contact" className="hover:text-gray-400 transition">
               Contact
             </a>
 
           </div>
-
         </div>
+      </motion.nav>
 
-      </nav>
-
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="h-screen flex flex-col justify-center items-center text-center px-6">
 
         <motion.h1
-          initial={{ opacity: 0, y: 80 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 100, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1 }}
           className="text-6xl md:text-8xl font-bold"
         >
@@ -74,8 +110,11 @@ export default function App() {
 
         <motion.a
           href="#projects"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{
+            scale: 1.1,
+            boxShadow: "0px 0px 30px rgba(255,255,255,0.3)",
+          }}
+          whileTap={{ scale: 0.95 }}
           className="mt-8 px-8 py-3 bg-white text-black rounded-full font-semibold"
         >
           View Projects
@@ -83,37 +122,46 @@ export default function App() {
 
       </section>
 
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-32 px-8 max-w-5xl mx-auto">
-
+      {/* ABOUT */}
+      <section
+        id="about"
+        className="py-32 px-8 max-w-5xl mx-auto"
+      >
         <motion.h2
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
           className="text-4xl font-bold mb-8"
         >
           About Me
         </motion.h2>
 
         <motion.p
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
           className="text-gray-400 text-lg leading-8"
         >
           I am a passionate frontend developer focused on creating
-          modern, responsive, and animated web experiences using
+          modern, responsive and animated web experiences using
           React and Tailwind CSS.
         </motion.p>
-
       </section>
 
-      {/* SKILLS SECTION */}
+      {/* SKILLS */}
       <section id="skills" className="py-24 px-8">
 
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center mb-16"
+        >
           Skills
-        </h2>
+        </motion.h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
 
@@ -125,43 +173,60 @@ export default function App() {
             "Tailwind CSS",
             "Git",
             "GitHub",
-            "Java"
-          ].map((skill) => (
+            "Java",
+          ].map((skill, index) => (
             <motion.div
               key={skill}
-              whileHover={{
-                scale: 1.05,
-                borderColor: "#ffffff"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.08,
               }}
-              className="bg-zinc-900/70 backdrop-blur-lg border border-zinc-800 rounded-2xl p-6 text-center transition-all shadow-lg"
+              whileHover={{
+                scale: 1.08,
+                y: -8,
+              }}
+              className="bg-zinc-900/70 backdrop-blur-lg border border-zinc-800 rounded-2xl p-6 text-center shadow-lg"
             >
               {skill}
             </motion.div>
           ))}
 
         </div>
-
       </section>
 
-      {/* PROJECTS SECTION */}
+      {/* PROJECTS */}
       <section id="projects" className="py-32 px-8">
 
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center mb-16"
+        >
           Projects
-        </h2>
+        </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
 
           {[1, 2].map((item) => (
             <motion.div
               key={item}
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               whileHover={{
-                y: -10,
-                scale: 1.02
+                y: -12,
+                scale: 1.03,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 120,
               }}
               className="bg-zinc-900/70 backdrop-blur-lg border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl"
             >
-
               <div className="h-60 bg-gradient-to-br from-zinc-700 to-zinc-900"></div>
 
               <div className="p-6">
@@ -175,35 +240,42 @@ export default function App() {
                   and smooth animations.
                 </p>
 
-                <button className="mt-6 px-5 py-2 border border-white rounded-full hover:bg-white hover:text-black transition-all">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                  }}
+                  className="mt-6 px-5 py-2 border border-white rounded-full hover:bg-white hover:text-black transition-all"
+                >
                   View Project
-                </button>
+                </motion.button>
 
               </div>
-
             </motion.div>
           ))}
 
         </div>
-
       </section>
 
-      {/* CONTACT SECTION */}
-      <section id="contact" className="py-32 text-center px-6">
-
+      {/* CONTACT */}
+      <section
+        id="contact"
+        className="py-32 text-center px-6"
+      >
         <motion.h2
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 40 }}
-          transition={{ duration: 0.8 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
           className="text-5xl font-bold"
         >
-          Let’s Work Together
+          Let&apos;s Work Together
         </motion.h2>
 
         <motion.p
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 0.3 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
           className="text-gray-400 mt-6 text-lg"
         >
           Connect with me
@@ -211,32 +283,34 @@ export default function App() {
 
         <div className="flex justify-center gap-8 mt-10 text-4xl">
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.3, rotate: 10 }}
             href="https://github.com/deepasripushparaj-commits"
             target="_blank"
-            className="hover:text-gray-400 transition-all"
+            rel="noreferrer"
           >
             <FaGithub />
-          </a>
+          </motion.a>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.3, rotate: 10 }}
             href="https://instagram.com/"
             target="_blank"
-            className="hover:text-pink-400 transition-all"
+            rel="noreferrer"
           >
             <FaInstagram />
-          </a>
+          </motion.a>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.3, rotate: 10 }}
             href="https://linkedin.com/"
             target="_blank"
-            className="hover:text-blue-400 transition-all"
+            rel="noreferrer"
           >
             <FaLinkedin />
-          </a>
+          </motion.a>
 
         </div>
-
       </section>
 
     </div>
