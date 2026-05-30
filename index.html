@@ -1,13 +1,174 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Deepasri Portfolio</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:rgba(0,0,0,0.4);
+position:sticky;
+top:0;
+backdrop-filter:blur(10px);
+}
+
+header h1{
+color:#38bdf8;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h2{
+font-size:48px;
+color:#38bdf8;
+}
+
+.hero p{
+max-width:600px;
+color:#cbd5e1;
+margin-top:10px;
+}
+
+.btn{
+margin-top:20px;
+padding:10px 20px;
+background:#38bdf8;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+section{
+padding:60px 20px;
+max-width:900px;
+margin:auto;
+}
+
+h3{
+color:#38bdf8;
+margin-bottom:10px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover{
+transform:scale(1.02);
+transition:0.3s;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.4);
+margin-top:30px;
+}
+
+@media(max-width:768px){
+.hero h2{font-size:30px;}
+nav{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Deepasri P</h1>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="hero">
+<h2>Full Stack Developer</h2>
+<p>
+I am Deepasri P. I am currently learning Java and building strong skills in Full Stack Development.
+</p>
+<button class="btn" onclick="document.getElementById('contact').scrollIntoView()">
+Contact Me
+</button>
+</div>
+
+<section id="about">
+<h3>About Me</h3>
+<div class="card">
+I am a passionate developer. I learned C++ and currently learning Java online. I enjoy building real-world mini projects.
+</div>
+</section>
+
+<section id="skills">
+<h3>Skills</h3>
+<div class="card">HTML, CSS, JavaScript</div>
+<div class="card">Python</div>
+<div class="card">C Programming</div>
+<div class="card">C++</div>
+<div class="card">Java (Learning)</div>
+</section>
+
+<section id="projects">
+<h3>Projects</h3>
+<div class="card">
+<strong>Online Movie Ticket Booking System</strong>
+<p>A mini project for booking movie tickets with basic functionality.</p>
+</div>
+</section>
+
+<section id="contact">
+<h3>Contact</h3>
+<div class="card">
+📧 deepasripushparaj@gmail.com <br/>
+📱 9566595036
+</div>
+</section>
+
+<footer>
+© 2026 Deepasri P | Portfolio
+</footer>
+
+</body>
 </html>
