@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Deepasri | Final Boss Portfolio</title>
+<title>DS Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -19,19 +19,6 @@ scroll-behavior:smooth;
 body{
 background:#050816;
 color:#e5e7eb;
-overflow-x:hidden;
-}
-
-/* BACKGROUND GLOW */
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 20%, #38bdf8 0%, transparent 30%),
-radial-gradient(circle at 80% 80%, #8b5cf6 0%, transparent 30%);
-opacity:0.15;
-z-index:-1;
 }
 
 /* NAV */
@@ -39,32 +26,37 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 30px;
+padding:16px 28px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
 position:sticky;
 top:0;
-backdrop-filter:blur(10px);
-background:rgba(0,0,0,0.4);
 border-bottom:1px solid #1f2937;
 }
 
-nav h1{
+.logo{
+font-size:20px;
+font-weight:700;
 color:#38bdf8;
+letter-spacing:2px;
 }
 
 nav a{
 color:#e5e7eb;
-margin:0 12px;
+margin:0 10px;
 text-decoration:none;
 font-size:14px;
+transition:0.3s;
 }
 
 nav a:hover{
 color:#38bdf8;
+transform:scale(1.1);
 }
 
 /* HERO */
 .hero{
-height:95vh;
+height:90vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -73,29 +65,20 @@ text-align:center;
 padding:20px;
 }
 
-.hero h2{
-font-size:56px;
+.hero h1{
+font-size:55px;
 color:#38bdf8;
-text-shadow:0 0 25px #38bdf8;
+text-shadow:0 0 20px #38bdf8;
 }
 
 .hero p{
-max-width:650px;
-margin-top:15px;
+max-width:600px;
 color:#9ca3af;
-}
-
-.badge{
-margin-top:15px;
-padding:6px 12px;
-border:1px solid #38bdf8;
-border-radius:20px;
-font-size:12px;
-color:#38bdf8;
+margin-top:10px;
 }
 
 .btn{
-margin-top:25px;
+margin-top:20px;
 padding:12px 25px;
 background:#38bdf8;
 border:none;
@@ -107,42 +90,34 @@ transition:0.3s;
 
 .btn:hover{
 transform:scale(1.1);
-box-shadow:0 0 25px #38bdf8;
+box-shadow:0 0 20px #38bdf8;
 }
 
 /* SECTION */
 section{
-max-width:950px;
+max-width:900px;
 margin:auto;
-padding:80px 20px;
-opacity:0;
-transform:translateY(40px);
-animation:fadeUp 1s forwards;
+padding:70px 20px;
 }
 
-section:nth-child(2){animation-delay:0.2s;}
-section:nth-child(3){animation-delay:0.4s;}
-section:nth-child(4){animation-delay:0.6s;}
-
-h3{
+h2{
 color:#38bdf8;
-margin-bottom:20px;
-font-size:24px;
+margin-bottom:15px;
 }
 
 /* CARD */
 .card{
 background:rgba(255,255,255,0.05);
-border:1px solid rgba(56,189,248,0.2);
 padding:18px;
-border-radius:14px;
+border-radius:12px;
 margin:12px 0;
-transition:0.4s;
+border:1px solid rgba(56,189,248,0.2);
+transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-8px) scale(1.02);
-box-shadow:0 0 25px rgba(56,189,248,0.4);
+transform:translateY(-8px);
+box-shadow:0 0 20px rgba(56,189,248,0.4);
 }
 
 /* SKILLS */
@@ -150,38 +125,17 @@ box-shadow:0 0 25px rgba(56,189,248,0.4);
 display:inline-block;
 padding:7px 14px;
 margin:5px;
-border-radius:20px;
 background:#0f172a;
 border:1px solid #38bdf8;
+border-radius:20px;
 font-size:13px;
 }
 
-/* PROJECT GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
-
-.project{
-background:rgba(255,255,255,0.05);
-padding:15px;
-border-radius:12px;
-border:1px solid #1f2937;
-transition:0.3s;
-}
-
-.project:hover{
-transform:scale(1.05);
-border-color:#38bdf8;
-}
-
 /* CONTACT */
-.contact{
-background:#0f172a;
-padding:18px;
-border-radius:12px;
-border:1px solid #1f2937;
+.contact a{
+color:#38bdf8;
+margin:0 10px;
+text-decoration:none;
 }
 
 /* FOOTER */
@@ -193,16 +147,22 @@ color:#9ca3af;
 }
 
 /* ANIMATION */
-@keyframes fadeUp{
+.fade{
+opacity:0;
+transform:translateY(20px);
+animation:up 1s forwards;
+}
+
+@keyframes up{
 to{
 opacity:1;
 transform:translateY(0);
 }
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:768px){
-.hero h2{font-size:34px;}
+.hero h1{font-size:32px;}
 nav a{display:none;}
 }
 </style>
@@ -210,10 +170,9 @@ nav a{display:none;}
 
 <body>
 
-<div class="bg"></div>
-
+<!-- NAV -->
 <nav>
-<h1>Deepasri P</h1>
+<div class="logo">DS</div>
 <div>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
@@ -223,10 +182,9 @@ nav a{display:none;}
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-<div class="badge">🚀 Final Boss Developer Portfolio</div>
-<h2>Deepasri P</h2>
-<p>Full Stack Developer | Java Learner | Problem Solver</p>
+<div class="hero fade">
+<h1>Full Stack Developer</h1>
+<p>I am Deepasri P, passionate developer building modern web applications.</p>
 
 <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">
 Hire Me
@@ -234,16 +192,16 @@ Hire Me
 </div>
 
 <!-- ABOUT -->
-<section id="about">
-<h3>About Me</h3>
+<section id="about" class="fade">
+<h2>About Me</h2>
 <div class="card">
-I am Deepasri P. I am passionate about Full Stack Development. I learned C, C++, Python and currently improving Java skills through online learning.
+I am learning Full Stack Development. I know C, C++, Python and currently learning Java.
 </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-<h3>Skills</h3>
+<section id="skills" class="fade">
+<h2>Skills</h2>
 <div class="card skills">
 <span>HTML</span>
 <span>CSS</span>
@@ -256,39 +214,31 @@ I am Deepasri P. I am passionate about Full Stack Development. I learned C, C++,
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-<h3>Projects</h3>
+<section id="projects" class="fade">
+<h2>Projects</h2>
 
-<div class="grid">
-<div class="project">
-<strong>Movie Ticket Booking</strong>
-<p>Mini project for booking movie tickets with UI flow and logic.</p>
-</div>
-
-<div class="project">
-<strong>More Coming Soon</strong>
-<p>Future full stack projects will be added here.</p>
-</div>
+<div class="card">
+<strong>Online Movie Ticket Booking System</strong>
+<p>Mini project with booking flow and UI design.</p>
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-<h3>Contact</h3>
+<section id="contact" class="fade">
+<h2>Contact</h2>
 
-<div class="contact">
+<div class="card contact">
 📧 deepasripushparaj@gmail.com <br/>
 📱 9566595036 <br/><br/>
 
-<!-- SOCIAL LINKS -->
-<a href="https://github.com/?utm_source=chatgpt.com" target="_blank" style="color:#38bdf8;">GitHub</a> |
-<a href="https://www.linkedin.com/in/deepasri-p-68592532a/" target="_blank" style="color:#38bdf8;">LinkedIn</a> |
-<a href="https://www.instagram.com/26_deepzz" target="_blank" style="color:#38bdf8;">Instagram</a>
+<a href="https://github.com/" target="_blank">GitHub</a> |
+<a href="https://www.linkedin.com/" target="_blank">LinkedIn</a> |
+<a href="https://instagram.com/" target="_blank">Instagram</a>
 </div>
 </section>
 
 <footer>
-© 2026 Deepasri P | Final Boss Portfolio
+© 2026 DS | Interactive Portfolio
 </footer>
 
 </body>
