@@ -3,49 +3,54 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Deepasri Portfolio</title>
+<title>Deepasri | Full Stack Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:'Inter', sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
-background:#0a0f1f;
-color:white;
+background:#0b1220;
+color:#e5e7eb;
 }
 
-header{
+/* NAV */
+nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 20px;
-background:rgba(0,0,0,0.6);
+padding:18px 30px;
+background:rgba(10,15,25,0.8);
+backdrop-filter:blur(10px);
 position:sticky;
 top:0;
-backdrop-filter:blur(10px);
-border-bottom:1px solid #38bdf8;
+border-bottom:1px solid #1f2937;
 }
 
-header h1{
+nav h1{
 color:#38bdf8;
+font-size:20px;
 }
 
 nav a{
-color:white;
-margin:0 10px;
+color:#e5e7eb;
+margin:0 12px;
 text-decoration:none;
-transition:0.3s;
+font-size:14px;
 }
 
 nav a:hover{
 color:#38bdf8;
 }
 
+/* HERO */
 .hero{
 height:90vh;
 display:flex;
@@ -53,134 +58,160 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:20px;
 }
 
 .hero h2{
-font-size:50px;
+font-size:52px;
 color:#38bdf8;
-text-shadow:0 0 20px #38bdf8;
-animation:fadeIn 2s ease-in;
 }
 
 .hero p{
-max-width:600px;
-color:#cbd5e1;
-margin-top:10px;
-animation:fadeIn 3s ease-in;
+max-width:650px;
+margin-top:15px;
+color:#9ca3af;
+font-size:16px;
+}
+
+.badge{
+margin-top:15px;
+padding:6px 12px;
+background:#1f2937;
+border:1px solid #38bdf8;
+border-radius:20px;
+font-size:12px;
+color:#38bdf8;
 }
 
 .btn{
-margin-top:20px;
+margin-top:25px;
 padding:12px 25px;
 background:#38bdf8;
 border:none;
 border-radius:8px;
 cursor:pointer;
-font-weight:bold;
-box-shadow:0 0 15px #38bdf8;
+font-weight:600;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.1);
+transform:scale(1.05);
+box-shadow:0 0 15px #38bdf8;
 }
 
+/* SECTIONS */
 section{
-padding:70px 20px;
 max-width:900px;
 margin:auto;
-opacity:0;
-transform:translateY(30px);
-animation:slideUp 1s forwards;
-}
-
-section:nth-child(odd){
-animation-delay:0.2s;
+padding:70px 20px;
 }
 
 h3{
 color:#38bdf8;
-margin-bottom:15px;
+margin-bottom:20px;
+font-size:22px;
 }
 
+/* CARD */
 .card{
-background:rgba(255,255,255,0.05);
-padding:15px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid rgba(56,189,248,0.3);
+background:#111827;
+border:1px solid #1f2937;
+padding:18px;
+border-radius:12px;
+margin:12px 0;
 transition:0.3s;
 }
 
 .card:hover{
-transform:scale(1.03);
-box-shadow:0 0 20px #38bdf8;
+transform:translateY(-5px);
+border-color:#38bdf8;
 }
 
+/* SKILLS */
 .skills span{
 display:inline-block;
-background:#38bdf8;
-color:black;
 padding:6px 12px;
 margin:5px;
+background:#1f2937;
+border:1px solid #38bdf8;
 border-radius:20px;
-font-weight:bold;
+font-size:13px;
 }
 
-.social a{
-color:#38bdf8;
-margin:0 10px;
-text-decoration:none;
-font-weight:bold;
+/* CONTACT */
+.contact{
+background:#111827;
+padding:18px;
+border-radius:12px;
+border:1px solid #1f2937;
 }
 
+/* FOOTER */
 footer{
 text-align:center;
 padding:20px;
-border-top:1px solid #38bdf8;
-margin-top:30px;
+border-top:1px solid #1f2937;
+color:#9ca3af;
 }
 
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(-20px);}
+/* ANIMATION */
+.fade{
+opacity:0;
+transform:translateY(20px);
+animation:up 1s forwards;
+}
+
+.fade:nth-child(2){animation-delay:0.2s;}
+.fade:nth-child(3){animation-delay:0.4s;}
+.fade:nth-child(4){animation-delay:0.6s;}
+
+@keyframes up{
 to{opacity:1; transform:translateY(0);}
 }
 
-@keyframes slideUp{
-to{opacity:1; transform:translateY(0);}
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero h2{font-size:32px;}
+nav a{display:none;}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Deepasri P</h1>
 <nav>
+<h1>Deepasri P</h1>
+<div>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
+</div>
 </nav>
-</header>
 
-<div class="hero">
-<h2>Full Stack Developer</h2>
-<p>I build modern web applications using Java, Python, and JavaScript</p>
+<!-- HERO -->
+<div class="hero fade">
+<div class="badge">Full Stack Developer</div>
+<h2>Building Modern Web Apps</h2>
+<p>
+I am Deepasri P, passionate developer skilled in C, C++, Python, JavaScript and currently learning Java for backend development.
+</p>
 
 <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">
-Contact Me
+Hire Me
 </button>
 </div>
 
-<section id="about">
+<!-- ABOUT -->
+<section id="about" class="fade">
 <h3>About Me</h3>
 <div class="card">
-I am Deepasri P. I am learning Java and improving my Full Stack Development skills. I enjoy building real-world projects.
+I am a dedicated Full Stack Developer learner focused on building scalable and clean web applications. I enjoy solving real-world problems using code.
 </div>
 </section>
 
-<section id="skills">
+<!-- SKILLS -->
+<section id="skills" class="fade">
 <h3>Skills</h3>
 <div class="card skills">
 <span>HTML</span>
@@ -189,35 +220,33 @@ I am Deepasri P. I am learning Java and improving my Full Stack Development skil
 <span>Python</span>
 <span>C</span>
 <span>C++</span>
-<span>Java</span>
+<span>Java (Learning)</span>
 </div>
 </section>
 
-<section id="projects">
+<!-- PROJECTS -->
+<section id="projects" class="fade">
 <h3>Projects</h3>
+
 <div class="card">
 <strong>Online Movie Ticket Booking System</strong>
-<p>Mini project built for booking movie tickets with basic features.</p>
+<p>Full mini project simulating ticket booking with seat selection and UI flow.</p>
 </div>
+
 </section>
 
-<section id="contact">
+<!-- CONTACT -->
+<section id="contact" class="fade">
 <h3>Contact</h3>
-<div class="card">
-📧 deepasripushparaj@gmail.com <br/>
-📱 9566595036
-</div>
 
-<div class="social">
-<p>Connect:</p>
-<a href="https://github.com/">GitHub</a>
-<a href="https://linkedin.com/">LinkedIn</a>
-<a href="https://instagram.com/">Instagram</a>
+<div class="contact">
+📧 Email: deepasripushparaj@gmail.com <br/>
+📱 Phone: 9566595036
 </div>
 </section>
 
 <footer>
-© 2026 Deepasri P | All Rights Reserved
+© 2026 Deepasri P | FAANG-Level Portfolio
 </footer>
 
 </body>
